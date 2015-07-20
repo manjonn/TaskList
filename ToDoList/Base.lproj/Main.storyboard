@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7kO-1u-qIs">
-                                <rect key="frame" x="0.0" y="28" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="58" width="600" height="570"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" textLabel="Wox-vo-aze" style="IBUITableViewCellStyleDefault" id="VSy-dd-Ujs">
@@ -39,17 +39,33 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="WDO-gm-inW"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="V0h-V0-4Z1"/>
                                 </connections>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSt-sq-gN5">
+                                <rect key="frame" x="0.0" y="28" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="mzs-6N-91c"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7kO-1u-qIs" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="Ud1-gt-qMr"/>
+                            <constraint firstItem="XSt-sq-gN5" firstAttribute="leading" secondItem="7kO-1u-qIs" secondAttribute="leading" id="QgJ-p4-k2i"/>
+                            <constraint firstItem="7kO-1u-qIs" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="38" id="Ud1-gt-qMr"/>
                             <constraint firstAttribute="trailing" secondItem="7kO-1u-qIs" secondAttribute="trailing" id="Wwj-em-Hz7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="7kO-1u-qIs" secondAttribute="bottom" constant="-28" id="Y8S-JE-Nz0"/>
+                            <constraint firstItem="XSt-sq-gN5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="c99-Bd-T4e"/>
+                            <constraint firstItem="XSt-sq-gN5" firstAttribute="trailing" secondItem="7kO-1u-qIs" secondAttribute="trailing" id="mgs-3t-SVt"/>
                             <constraint firstItem="7kO-1u-qIs" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="tqF-YP-tub"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="taskTableView" destination="7kO-1u-qIs" id="f3h-cQ-fld"/>
+                        <outlet property="taskTextField" destination="XSt-sq-gN5" id="tFP-nf-9kx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
