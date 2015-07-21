@@ -14,6 +14,8 @@
 		05ED19121B5C6489000222A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05ED19111B5C6489000222A7 /* Images.xcassets */; };
 		05ED19151B5C6489000222A7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05ED19131B5C6489000222A7 /* LaunchScreen.xib */; };
 		05ED19211B5C648A000222A7 /* ToDoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ED19201B5C648A000222A7 /* ToDoListTests.m */; };
+		05ED192C1B5CAF68000222A7 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ED192B1B5CAF68000222A7 /* Task.m */; };
+		05ED192F1B5CB65C000222A7 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ED192E1B5CB65C000222A7 /* AddTaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		05ED191A1B5C648A000222A7 /* ToDoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05ED191F1B5C648A000222A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05ED19201B5C648A000222A7 /* ToDoListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoListTests.m; sourceTree = "<group>"; };
+		05ED192A1B5CAF68000222A7 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		05ED192B1B5CAF68000222A7 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		05ED192D1B5CB65C000222A7 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
+		05ED192E1B5CB65C000222A7 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,10 @@
 				05ED19091B5C6489000222A7 /* AppDelegate.m */,
 				05ED190B1B5C6489000222A7 /* ViewController.h */,
 				05ED190C1B5C6489000222A7 /* ViewController.m */,
+				05ED192D1B5CB65C000222A7 /* AddTaskViewController.h */,
+				05ED192E1B5CB65C000222A7 /* AddTaskViewController.m */,
+				05ED192A1B5CAF68000222A7 /* Task.h */,
+				05ED192B1B5CAF68000222A7 /* Task.m */,
 				05ED190E1B5C6489000222A7 /* Main.storyboard */,
 				05ED19111B5C6489000222A7 /* Images.xcassets */,
 				05ED19131B5C6489000222A7 /* LaunchScreen.xib */,
@@ -219,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05ED192F1B5CB65C000222A7 /* AddTaskViewController.m in Sources */,
+				05ED192C1B5CAF68000222A7 /* Task.m in Sources */,
 				05ED190D1B5C6489000222A7 /* ViewController.m in Sources */,
 				05ED190A1B5C6489000222A7 /* AppDelegate.m in Sources */,
 				05ED19071B5C6489000222A7 /* main.m in Sources */,

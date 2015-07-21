@@ -7,8 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "AddTaskViewController.h"
+#import "Task.h"
 
-@interface ViewController ()<UITableViewDataSource,UITextFieldDelegate,UITableViewDelegate>
+@interface ViewController ()<UITableViewDataSource,UITextFieldDelegate,UITableViewDelegate,AddTaskViewControllerDelegate>{
+    
+    NSDateFormatter *_dateFormatter;
+    
+}
+
 
 ///NSArray is static array NSMutableArray Objects can be added and removed.
 @property(nonatomic,strong)NSMutableArray *tasks;
@@ -23,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tasks=[NSMutableArray array];
+    _dateFormatter=[NSDateFormatter new];
+    [_dateFormatter setDateStyle:NSDateFormatterLongStyle];
     self.editingIndex=-1;
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -30,6 +39,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.destinationViewController isKindOfClass:[AddTaskViewController class]]) {
+        AddTaskViewController *addTaskViewController=segue.destinationViewController;
+        addTaskViewController.delegate=self;
+    }
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -41,7 +59,9 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"taskCell" forIndexPath:indexPath];
-    cell.textLabel.text=self.tasks[indexPath.row];
+    Task *task=self.tasks[indexPath.row];
+    cell.textLabel.text=task.taskName;
+    cell.detailTextLabel.text=[_dateFormatter stringFromDate:task.deadLine];
     return cell;
 }
 
@@ -81,6 +101,7 @@
         [weakself.taskTableView reloadData];
         
     }];
+    /*
     UITableViewRowAction *editAction=[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         
         weakself.editingIndex=indexPath.row;
@@ -91,6 +112,8 @@
     }];
     
     return @[deleteAction,editAction];
+     */
+    return @[deleteAction];
     
 }
 
@@ -112,6 +135,15 @@
     textField.text=@"";
     [textField resignFirstResponder];
     return YES;
+}
+
+#pragma mark - AddTaskViewControllerDelegate
+
+-(void)addTask:(Task *)task{
+    
+    [self.tasks addObject:task];
+    [self.taskTableView reloadData];
+    
 }
 
 @end
