@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AddTaskViewController.h"
+#import "TaskTableViewCell.h"
 #import "Task.h"
 
 @interface ViewController ()<UITableViewDataSource,UITextFieldDelegate,UITableViewDelegate,AddTaskViewControllerDelegate>{
@@ -58,10 +59,11 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"taskCell" forIndexPath:indexPath];
+    TaskTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"taskCell" forIndexPath:indexPath];
     Task *task=self.tasks[indexPath.row];
-    cell.textLabel.text=task.taskName;
-    cell.detailTextLabel.text=[_dateFormatter stringFromDate:task.deadLine];
+    cell.taskNameLabel.text=task.taskName;
+    cell.taskDescriptionLabel.text=task.taskDescription;
+    cell.deadLineLabel.text=[_dateFormatter stringFromDate:task.deadLine];
     return cell;
 }
 
@@ -101,19 +103,19 @@
         [weakself.taskTableView reloadData];
         
     }];
-    /*
+    
     UITableViewRowAction *editAction=[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         
-        weakself.editingIndex=indexPath.row;
-        weakself.taskTextField.text=weakself.tasks[indexPath.row];
+        AddTaskViewController *taskViewController=[[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"AddTaskViewController"];
+        taskViewController.delegate=self;
+        [self.navigationController pushViewController:taskViewController animated:YES];
+        taskViewController.task=self.tasks[indexPath.row];
         [weakself.taskTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
         
     }];
     
     return @[deleteAction,editAction];
-     */
-    return @[deleteAction];
     
 }
 
@@ -144,6 +146,13 @@
     [self.tasks addObject:task];
     [self.taskTableView reloadData];
     
+}
+
+-(void)replaceTask:(Task *)task withTask:(Task *)anotherTask{
+    NSInteger index=[self.tasks indexOfObject:task];
+    
+    [self.tasks replaceObjectAtIndex:index withObject:anotherTask];
+    [self.taskTableView reloadData];
 }
 
 @end

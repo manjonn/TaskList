@@ -28,6 +28,12 @@
     [super viewDidLoad];
     _dateFormatter=[NSDateFormatter new];
     [_dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    if (self.task) {
+        self.taskNameTextField.text=self.task.taskName;
+        self.taskDescriptionTextField.text=self.task.taskDescription;
+        self.datePicker.date=self.task.deadLine;
+        [self.dateButton setTitle:[_dateFormatter stringFromDate:self.task.deadLine] forState:UIControlStateNormal];
+    }
     // Do any additional setup after loading the view.
 }
 
@@ -35,6 +41,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)setTask:(Task *)task{
+    _task=task;
+    self.taskNameTextField.text=task.taskName;
+    self.taskDescriptionTextField.text=task.taskDescription;
+    self.datePicker.date=task.deadLine;
+}
+
 - (IBAction)dateButtonTapped:(UIButton *)sender {
     
     if ([self.taskDescriptionTextField isFirstResponder]) {
@@ -67,8 +81,15 @@
     task.taskDescription=self.taskDescriptionTextField.text;
     task.deadLine=self.datePicker.date;
     
-    if ([self.delegate respondsToSelector:@selector(addTask:)]) {
-        [self.delegate addTask:task];
+    if (!self.task) {
+        if ([self.delegate respondsToSelector:@selector(addTask:)]) {
+            [self.delegate addTask:task];
+        }
+    }else{
+        if ([self.delegate respondsToSelector:@selector(replaceTask:withTask:)]) {
+            [self.delegate replaceTask:self.task withTask:task];
+        }
+
     }
     
     [self.navigationController popViewControllerAnimated:YES];

@@ -13,12 +13,14 @@
 @protocol AddTaskViewControllerDelegate <NSObject>
 
 -(void)addTask:(Task *)task;
+-(void)replaceTask:(Task *)task withTask:(Task *)anotherTask;
 
 @end
 
 @interface AddTaskViewController : UIViewController
 
 @property(nonatomic,weak)id<AddTaskViewControllerDelegate> delegate;
+@property(nonatomic,strong)Task *task;
 
 
 @end
