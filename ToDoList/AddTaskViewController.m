@@ -76,8 +76,10 @@
         [self.taskDescriptionTextField resignFirstResponder];
     }
     
-    Task *task=[Task new];
-    task.taskName=self.taskNameTextField.text;
+    Task *task=[Task taskWithTaskName:self.taskNameTextField.text andDeadLine:nil];
+ //   Task *task=[[Task alloc]initWithTaskName:self.taskNameTextField.text];
+ //   Task *task=[[Task alloc]init];
+ //   task.taskName=self.taskNameTextField.text;
     task.taskDescription=self.taskDescriptionTextField.text;
     task.deadLine=self.datePicker.date;
     
