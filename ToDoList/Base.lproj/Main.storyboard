@@ -27,25 +27,42 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VSy-dd-Ujs" id="Wms-Qs-Djl">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLG-gM-qAd">
-                                                    <rect key="frame" x="8" y="0.0" width="584" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLG-gM-qAd">
+                                                    <rect key="frame" x="1" y="0.0" width="598" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vek-Wk-Wg6">
-                                                    <rect key="frame" x="8" y="22" width="584" height="32"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xim-Vs-a5v">
-                                                    <rect key="frame" x="228" y="55" width="172" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vek-Wk-Wg6">
+                                                    <rect key="frame" x="1" y="22" width="598" height="32"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xim-Vs-a5v">
+                                                    <rect key="frame" x="214" y="55" width="172" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="172" id="HJ8-6C-ytt"/>
+                                                        <constraint firstAttribute="height" constant="21" id="lAT-W2-0Yn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Vek-Wk-Wg6" firstAttribute="top" secondItem="wLG-gM-qAd" secondAttribute="bottom" constant="1" id="0bU-ax-TEV"/>
+                                                <constraint firstItem="Vek-Wk-Wg6" firstAttribute="centerY" secondItem="Wms-Qs-Djl" secondAttribute="centerY" id="9YA-RO-28S"/>
+                                                <constraint firstItem="wLG-gM-qAd" firstAttribute="leading" secondItem="Wms-Qs-Djl" secondAttribute="leadingMargin" constant="-7" id="Aqf-V6-13z"/>
+                                                <constraint firstItem="Vek-Wk-Wg6" firstAttribute="top" secondItem="wLG-gM-qAd" secondAttribute="bottom" constant="1" id="O5g-In-HgT"/>
+                                                <constraint firstItem="Vek-Wk-Wg6" firstAttribute="trailing" secondItem="wLG-gM-qAd" secondAttribute="trailing" id="Vcn-oG-Ml5"/>
+                                                <constraint firstItem="wLG-gM-qAd" firstAttribute="centerX" secondItem="Wms-Qs-Djl" secondAttribute="centerX" id="iMt-tL-ICt"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Xim-Vs-a5v" secondAttribute="bottom" constant="-7.5" id="mHv-r3-rmM"/>
+                                                <constraint firstItem="wLG-gM-qAd" firstAttribute="top" secondItem="Wms-Qs-Djl" secondAttribute="top" id="nE4-xe-6sy"/>
+                                                <constraint firstItem="wLG-gM-qAd" firstAttribute="leading" secondItem="Vek-Wk-Wg6" secondAttribute="leading" id="qWk-z6-hvK"/>
+                                                <constraint firstItem="Xim-Vs-a5v" firstAttribute="centerX" secondItem="Vek-Wk-Wg6" secondAttribute="centerX" id="yBl-18-7dR"/>
+                                                <constraint firstItem="Xim-Vs-a5v" firstAttribute="top" secondItem="Vek-Wk-Wg6" secondAttribute="bottom" constant="1" id="zfK-Qy-z2M"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="deadLineLabel" destination="Xim-Vs-a5v" id="pQd-xs-hQM"/>

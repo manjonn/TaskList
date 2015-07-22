@@ -51,6 +51,18 @@
     
 }
 
+-(CGFloat)estimatedHeightForRow:(NSInteger)row{
+    
+    CGFloat ht=50;
+    Task *task=self.tasks[row];
+    if (task.taskDescription.length>0) {
+        CGRect rect=[task.taskDescription boundingRectWithSize:CGSizeMake(self.view.frame.size.width-30, INFINITY) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0]} context:nil];
+        ht+=rect.size.height+10;
+    }
+    return ht;
+}
+
+
 #pragma mark - UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -67,7 +79,7 @@
     return cell;
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDelegate
 /*
  //Use for pre-iOS 8 versions
 
@@ -119,6 +131,16 @@
     
 }
 
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [self estimatedHeightForRow:indexPath.row];
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return [self estimatedHeightForRow:indexPath.row];
+    
+}
 
 
 
